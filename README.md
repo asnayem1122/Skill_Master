@@ -114,6 +114,14 @@ To ensure **every project on the system** automatically has access to Skill Mast
        git push -u origin master
        ```
 
+5. **Clean Workspace Principle (Zero-Boilerplate Projects)**:
+   - **Do NOT create generic `.agent/skills/` folders in project repositories**:
+     - All general-purpose engineering skills (frontend, backend, testing, git, etc.) are already globally accessible from `Skill_Master`.
+     - Keeping duplicate skill folders in individual projects causes version drift and prevents projects from receiving auto-updates when `Skill_Master` evolves.
+   - **When to add `.agent/skills/` locally in a project**:
+     - ONLY create a local `.agent/skills/` (or `.agents/skills/`) folder if writing a **strictly project-unique skill** (e.g. proprietary company APIs, specific MFS payment gateways, or custom internal tooling).
+     - Everything else cleanly inherits from global `Skill_Master` with zero overhead.
+
 ---
 
 ## 🏗️ Repository Architecture
