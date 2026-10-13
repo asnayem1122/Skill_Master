@@ -1,0 +1,15 @@
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# Node & Python
+node_modules/
+npm-debug.log*
+__pycache__/
+*.py[cod]
+
+# Logs
+*.log
