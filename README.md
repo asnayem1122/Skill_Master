@@ -97,6 +97,23 @@ To ensure **every project on the system** automatically has access to Skill Mast
      node D:\Code\Skill_Master\skills-cli.js install <skill-id>
      ```
 
+4. **Disaster Recovery & Windows Reinstallation Guide**:
+   - **What happens if you reinstall/format Windows ("give Windows")?**
+     - **C: Drive is wiped**: Windows reinstall formats `C:\`, meaning `C:\Users\<user>\.gemini\` and its junctions will disappear.
+     - **D: Drive survives**: As long as you only format the C: partition during Windows installation, `D:\Code\Skill_Master` remains completely safe and untouched on disk!
+   - **1-Click Post-Install Restoration**:
+     - After reinstalling Windows and installing Antigravity, open `D:\Code\Skill_Master` and double-click:
+       ```bat
+       setup-global.bat
+       ```
+     - It will automatically recreate `%USERPROFILE%\.gemini\config\skills.json`, rebuild the live NTFS Junctions, and restore all 66 master skills globally in **under 1 second**.
+   - **100% Cloud Safety (GitHub)**:
+     - Push `Skill_Master` to a private or public GitHub repository to protect against total SSD failure:
+       ```bash
+       git remote add origin https://github.com/<your-username>/Skill_Master.git
+       git push -u origin master
+       ```
+
 ---
 
 ## 🏗️ Repository Architecture
