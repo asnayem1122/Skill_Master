@@ -43,7 +43,7 @@ This document is the official tracking registry and catalog ledger for the **Ski
 | [`brandkit`](file:///.agent/skills/brandkit/) | `brandkit` | Creative | 🟢 Active | Agency-grade brand identity boards, logo systems, and visual decks. |
 | [`canvas-design`](file:///.agent/skills/canvas-design/) | `canvas-design` | Creative | 🟢 Active | Programmatic visual design for PNG/PDF assets with bundled typography. |
 | [`ci-cd-and-automation`](file:///.agent/skills/ci-cd-and-automation/) | `ci-cd-and-automation` | DevOps | 🟢 Active | Automated build pipelines, test runners, and CI quality gates. |
-| [`clean-code-frontend-audit`](file:///.agent/skills/clean-code-frontend-audit/) | `clean-code-frontend-audit` | Frontend | 🟢 Active | End-to-end quality assurance eliminating mock fallbacks in Next.js + FastAPI. |
+| [`clean-code-frontend-audit`](file:///.agent/skills/clean-code-frontend-audit/) | `clean-code-frontend-audit` | Quality & Audit | 🟢 Active (Upgraded) | Zero-Hardcoding Master Matrix: eliminates mocks, magic numbers, static URLs & fake data. |
 | [`code-review-excellence`](file:///.agent/skills/code-review-excellence/) | `code-review-excellence` | Code Review | 🟢 Active (Upgraded) | Absorbed `code-review-and-quality` (5-axis review, structural remedies, sizing). |
 | [`code-simplification`](file:///.agent/skills/code-simplification/) | `code-simplification` | Quality | 🟢 Active | Refactors complex code for readability while preserving exact behavior. |
 | [`conductor-implement`](file:///.agent/skills/conductor-implement/) | `conductor-implement` | Conductor | 🟢 Active | Executes tasks from tracks adhering to TDD checkpoints and test-first verification. |
@@ -157,5 +157,11 @@ This document is the official tracking registry and catalog ledger for the **Ski
 - **Global Path Registration**: Configured `~/.gemini/config/skills.json` pointing directly to `D:/Code/Skill_Master/.agent/skills`.
 - **Directory Junction**: Established NTFS junction `~/.gemini/antigravity/skills` $\rightarrow$ `~/.gemini/config/skills` for complete backward and forward compatibility.
 - **Sync Fallback**: Maintained `node skills-cli.js sync-global` as an offline snapshot synchronization utility.
+
+### 2026-10-13 — Universal Zero-Hardcoding Evolution
+- **Positively Upgraded [`clean-code-frontend-audit`](file:///.agent/skills/clean-code-frontend-audit/)**: Transformed it into the master **Zero-Hardcoding & Clean Code Audit** playbook.
+- Added comprehensive coverage for all 6 hardcoding archetypes: Mock Data / Placeholders, Magic Numbers, Hardcoded URLs/Ports, Hardcoded Secrets, Inline CSS Dimensions, and Static Dates.
+- Added automated regex/ripgrep detection commands, typed binding refactoring rules, and a pre-submission de-hardcoding checklist.
+
 
 
