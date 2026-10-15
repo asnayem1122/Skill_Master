@@ -8,8 +8,9 @@ This document is the official tracking registry and catalog ledger for the **Ski
 
 | Metric | Current Count | Target | Status |
 |:-------|:--------------|:-------|:-------|
-| **Total Active Skills** | **66** (Zero Duplicates / Unified Themes) | 50+ | 🟢 Optimized |
+| **Total Active Skills** | **67** (Zero Duplicates / Unified Themes) | 50+ | 🟢 Optimized |
 | **Meta & Ecosystem Tools** | 2 (`skill-creator`, `antigravity-skills-manager`) | 2 | 🟢 Complete |
+| **Orchestration & Sub-Agents** | 1 (`agent-orchestrator`) | 1 | 🟢 Complete |
 | **Conductor CDD Lifecycle** | 7 (`conductor-setup`, `new-track`, `implement`, etc.) | 7 | 🟢 Streamlined |
 | **Ideation & Discovery** | 2 (`interview-me`, `brainstorming-ideas`) | 2 | 🟢 Complete |
 | **Planning & Methodology** | 7 (`spec-driven`, `writing-plans`, `constraints`, etc.) | 7 | 🟢 Complete |
@@ -29,11 +30,12 @@ This document is the official tracking registry and catalog ledger for the **Ski
 
 ---
 
-## 🗂️ Active Skills Catalog (66 Non-Redundant Skills)
+## 🗂️ Active Skills Catalog (67 Non-Redundant Skills)
 
 | Skill Folder | YAML Identifier | Domain | Status | Description & Value |
 |:-------------|:----------------|:-------|:-------|:--------------------|
 | [`accessible-forms-dialogs`](file:///.agent/skills/accessible-forms-dialogs/) | `accessible-forms-dialogs` | Frontend | 🟢 Active | WAI-ARIA forms, modal dialogs, focus trapping, and keyboard navigation. |
+| [`agent-orchestrator`](file:///.agent/skills/agent-orchestrator/) | `agent-orchestrator` | Orchestration | 🟢 Active | Splits complex tasks across narrow sub-agent roles with gated handoffs and independent verification. |
 | [`algorithmic-art`](file:///.agent/skills/algorithmic-art/) | `algorithmic-art` | Creative | 🟢 Active | Generative art in p5.js with seeded randomness and interactive exploration. |
 | [`antigravity-skills-manager`](file:///.agent/skills/antigravity-skills-manager/) | `antigravity-skills-manager` | Meta | 🟢 Active (Upgraded) | Central CLI & governance hub; absorbed `using-agent-skills` lifecycle tree. |
 | [`api-engineering`](file:///.agent/skills/api-engineering/) | `api-engineering` | Architecture | 🟢 Active (Merged) | Merged `api-and-interface-design` + `api-engineering` (RFC 7807, CORS, dynamic URLs). |
@@ -162,6 +164,14 @@ This document is the official tracking registry and catalog ledger for the **Ski
 - **Positively Upgraded [`clean-code-frontend-audit`](file:///.agent/skills/clean-code-frontend-audit/)**: Transformed it into the master **Zero-Hardcoding & Clean Code Audit** playbook.
 - Added comprehensive coverage for all 6 hardcoding archetypes: Mock Data / Placeholders, Magic Numbers, Hardcoded URLs/Ports, Hardcoded Secrets, Inline CSS Dimensions, and Static Dates.
 - Added automated regex/ripgrep detection commands, typed binding refactoring rules, and a pre-submission de-hardcoding checklist.
+
+### 2026-10-14 — Agent Orchestrator Release
+- **Added [`agent-orchestrator`](file:///.agent/skills/agent-orchestrator/)**: Multi-agent sub-agent orchestrator with strict handoff gates, evidence trust hierarchy (tier1/tier2/tier3), and independent verifier to prevent compounding hallucinations.
+- Added full sub-agent asset definitions: `researcher.md`, `writer.md`, `coder.md`, `verifier.md`.
+- Added role catalog (`references/roles.md`) and strict JSON handoff output schemas (`references/schemas.md`).
+- Repository count updated to 67 active skills.
+
+
 
 
 
