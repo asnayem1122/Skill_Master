@@ -1,12 +1,12 @@
 ---
 name: clean-code-frontend-audit
 description: >-
-  Provides end-to-end auditing and systematic de-hardcoding procedures across full-stack applications. Use this skill when asked to remove hardcoded values, eliminate mock fallbacks and fake placeholders, extract magic numbers into constants, replace hardcoded URLs/secrets with dynamic configs and environment variables, verify dynamic data pipelines, or audit clean code with Chrome DevTools.
+  Provides end-to-end clean code auditing, systematic de-hardcoding, and whole-repo lean waste audits. Use this skill when asked to audit a codebase or repository, find bloat, identify what to delete/merge/split, remove hardcoded values, eliminate mock fallbacks and fake placeholders, extract magic numbers into constants, replace hardcoded URLs/secrets with dynamic configs, or verify dynamic pipelines with Chrome DevTools.
 ---
 
-# Clean Code & De-Hardcoding Playbook
+# Clean Code & Whole-Repo Lean Audit Playbook
 
-This skill provides the comprehensive standard operating procedure for identifying, auditing, and systematically eliminating hardcoding, mock leakage, magic numbers, static fallbacks, and broken data pipelines across full-stack codebases.
+This skill provides the comprehensive standard operating procedure for auditing entire codebases or feature modules for hardcoding, mock leakage, magic numbers, speculative bloat, broken data pipelines, and architectural waste. It combines deep de-hardcoding patterns with Ponytail's ruthless whole-repo lean audit framework.
 
 ---
 
@@ -94,3 +94,38 @@ After eliminating hardcoded values, verify end-to-end dynamic behavior:
 - [ ] **No Magic Numbers**: All business thresholds, timeouts, and limits extracted to named constants.
 - [ ] **Environment Schema Validated**: Any new environment variable is added to `.env.example` and validated.
 - [ ] **Tests Pass**: All unit, integration, and E2E tests pass cleanly.
+
+---
+
+## 5. Whole-Repo Lean & Bloat Audit Framework
+
+When auditing a repository for overall code health and unnecessary bloat:
+
+### Step 1: Map the Repository
+- Identify entry points (main, routes, handlers, background workers, CLI commands).
+- Determine the assumed load profile (single user CLI script vs. high-concurrency multi-tenant backend).
+- Trace critical data paths: auth, money/billing, state persistence, external webhooks.
+
+### Step 2: Audit Across 6 Core Dimensions
+1. **Bugs & Edge Failures**: Unhandled zero/null, boundary conditions, time zone assumptions, rounding errors.
+2. **Security & Data Loss**: Unsanitized inputs, missing transactions, errors swallowed without rollback.
+3. **Concurrency & Scale**: Check-then-write race conditions, unbounded memory/cache growth, queries inside loops.
+4. **Untested Risky Logic**: Non-trivial branching, parsing, security, or state writes lacking empirical test coverage.
+5. **Performance Bottlenecks**: Heavy synchronous blocking in async pipelines, repeated expensive calculations.
+6. **Lean & Waste Elimination**:
+   - *Delete*: Dead code, obsolete flags, unused configuration.
+   - *Reuse*: Near-duplicate helpers that should be consolidated into one authoritative path.
+   - *Native*: Third-party dependencies that can be replaced with standard library or native platform features.
+   - *YAGNI*: Interfaces with single implementations, wrappers that merely pass arguments.
+   - *Split / Merge*: Split functions mixing multiple unrelated domains; merge near-copies that must change together.
+
+### Step 3: Prioritized Output Format
+Group findings into three groups with estimated line reduction:
+- 🔴 **Must Fix**: Bugs, security vulnerabilities, data loss, concurrency crashes.
+- 🟡 **Should Fix**: Risky code without tests, real latency bottlenecks, duplicate logic, YAGNI bloat.
+- 🟢 **Nice to Have**: Shorter idiomatic forms, small performance optimizations.
+
+Include a summary line:
+`Verdict: <Healthy | Fix N items first>`
+`Lean Potential: -<N> lines, -<M> dependencies possible.`
+

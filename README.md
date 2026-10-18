@@ -126,7 +126,7 @@ To ensure **every project on the system** automatically has access to Skill Mast
 
 ## 🏗️ Repository Architecture
 
-All **66 active skills** reside in `.agent/skills/`. Each skill is self-contained with its instructions, resources, and optional automation scripts:
+All **68 active skills** reside in `.agent/skills/`. Each skill is self-contained with its instructions, resources, and optional automation scripts:
 
 ```text
 Skill_Master/
@@ -140,6 +140,7 @@ Skill_Master/
 └── .agent/
     └── skills/
         ├── accessible-forms-dialogs/         # WAI-ARIA forms, modal dialogs, & keyboard navigation
+        ├── agent-orchestrator/               # Sub-agent orchestration with gated handoffs & verifier
         ├── algorithmic-art/                  # p5.js generative art with seeded randomness
         ├── antigravity-skills-manager/       # Meta-skill: browse & install catalog skills; lifecycle governance
         ├── api-engineering/                  # Contract-first REST/GraphQL, RFC 7807, CORS & base URLs
@@ -149,8 +150,8 @@ Skill_Master/
         ├── brandkit/                         # High-end brand guidelines boards & logo systems
         ├── canvas-design/                    # Visual design for PNG/PDF assets with bundled fonts
         ├── ci-cd-and-automation/             # Automated build pipelines, test runners, & CI gates
-        ├── clean-code-frontend-audit/        # End-to-end QA eliminating mocks in Next.js + FastAPI
-        ├── code-review-excellence/           # 5-axis review, static analysis, security & severity grading
+        ├── clean-code-frontend-audit/        # Zero-hardcoding matrix & whole-repo lean bloat audits
+        ├── code-review-excellence/           # 6-axis review, static analysis, security, scale & lean audit
         ├── code-simplification/              # Refactor complex code for clarity without behavior change
         ├── conductor-implement/              # Execute Conductor tasks with TDD & verification patterns
         ├── conductor-manage/                 # Conductor track lifecycle (archive, restore, cleanup)
@@ -182,6 +183,7 @@ Skill_Master/
         ├── observability-and-instrumentation/# Structured logging, RED metrics, tracing, & health alerts
         ├── pdf/                              # PDF parsing, table extraction, OCR, form-filling, & merging
         ├── performance-optimization/         # Full-stack profiling (frontend, API, DB queries)
+        ├── ponytail/                         # Lazy senior dev mindset: 6-step Decision Ladder, YAGNI, debt ledger
         ├── pptx/                             # Presentation creation, slide layouts, & text extraction
         ├── redesign-existing-projects/       # Upgrade existing web interfaces to premium agency quality
         ├── security-and-hardening/           # OWASP Top 10 prevention, dependency audits, & privacy
@@ -228,8 +230,9 @@ flowchart TD
         Plan --> ContextEng["🪟 context-engineering & source-driven"]
     end
 
-    subgraph Implementation ["3. Strict TDD Implementation"]
-        Plan --> TDD["🔴 test-driven-development"]
+    subgraph Implementation ["3. Strict Minimalist & TDD Implementation"]
+        Plan --> Ponytail["✂️ ponytail (Decision Ladder & YAGNI)"]
+        Ponytail --> TDD["🔴 test-driven-development"]
         TDD --> Incr["⚡ incremental-implementation"]
         Incr --> FE["🎨 frontend-ui-engineering / frontend-design"]
         Incr --> BE["🗄️ database-engineering / security-and-hardening"]
@@ -244,7 +247,7 @@ flowchart TD
     end
 
     subgraph ReviewAndShip ["5. Review & Delivery"]
-        EvidenceGate --> Review["🧐 code-review-excellence & code-simplification"]
+        EvidenceGate --> Review["🧐 code-review-excellence (6-Axis & Lean) & code-simplification"]
         Review --> GitPR["🚀 git-pr-workflows-git-workflow & semver"]
         GitPR --> Deploy["📦 deploy-to-vercel / shipping-and-launch"]
     end

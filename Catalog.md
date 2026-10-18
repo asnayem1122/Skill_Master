@@ -8,12 +8,12 @@ This document is the official tracking registry and catalog ledger for the **Ski
 
 | Metric | Current Count | Target | Status |
 |:-------|:--------------|:-------|:-------|
-| **Total Active Skills** | **67** (Zero Duplicates / Unified Themes) | 50+ | 🟢 Optimized |
+| **Total Active Skills** | **68** (Zero Duplicates / Unified Themes) | 50+ | 🟢 Optimized |
 | **Meta & Ecosystem Tools** | 2 (`skill-creator`, `antigravity-skills-manager`) | 2 | 🟢 Complete |
 | **Orchestration & Sub-Agents** | 1 (`agent-orchestrator`) | 1 | 🟢 Complete |
 | **Conductor CDD Lifecycle** | 7 (`conductor-setup`, `new-track`, `implement`, etc.) | 7 | 🟢 Streamlined |
 | **Ideation & Discovery** | 2 (`interview-me`, `brainstorming-ideas`) | 2 | 🟢 Complete |
-| **Planning & Methodology** | 7 (`spec-driven`, `writing-plans`, `constraints`, etc.) | 7 | 🟢 Complete |
+| **Planning & Methodology** | 8 (`ponytail`, `spec-driven`, `writing-plans`, etc.) | 7 | 🟢 Complete |
 | **Architecture & Full-Stack** | 3 (`architect-review`, `full-stack`, `api-engineering`) | 3 | 🟢 Complete |
 | **Backend & Infrastructure** | 4 (`database`, `security`, `observability`, `perf`) | 4 | 🟢 Complete |
 | **Testing & Verification** | 4 (`tdd`, `unit-testing`, `webapp-testing`, `verify-gate`) | 4 | 🟢 Complete |
@@ -30,7 +30,7 @@ This document is the official tracking registry and catalog ledger for the **Ski
 
 ---
 
-## 🗂️ Active Skills Catalog (67 Non-Redundant Skills)
+## 🗂️ Active Skills Catalog (68 Non-Redundant Skills)
 
 | Skill Folder | YAML Identifier | Domain | Status | Description & Value |
 |:-------------|:----------------|:-------|:-------|:--------------------|
@@ -45,8 +45,8 @@ This document is the official tracking registry and catalog ledger for the **Ski
 | [`brandkit`](file:///.agent/skills/brandkit/) | `brandkit` | Creative | 🟢 Active | Agency-grade brand identity boards, logo systems, and visual decks. |
 | [`canvas-design`](file:///.agent/skills/canvas-design/) | `canvas-design` | Creative | 🟢 Active | Programmatic visual design for PNG/PDF assets with bundled typography. |
 | [`ci-cd-and-automation`](file:///.agent/skills/ci-cd-and-automation/) | `ci-cd-and-automation` | DevOps | 🟢 Active | Automated build pipelines, test runners, and CI quality gates. |
-| [`clean-code-frontend-audit`](file:///.agent/skills/clean-code-frontend-audit/) | `clean-code-frontend-audit` | Quality & Audit | 🟢 Active (Upgraded) | Zero-Hardcoding Master Matrix: eliminates mocks, magic numbers, static URLs & fake data. |
-| [`code-review-excellence`](file:///.agent/skills/code-review-excellence/) | `code-review-excellence` | Code Review | 🟢 Active (Upgraded) | Absorbed `code-review-and-quality` (5-axis review, structural remedies, sizing). |
+| [`clean-code-frontend-audit`](file:///.agent/skills/clean-code-frontend-audit/) | `clean-code-frontend-audit` | Quality & Audit | 🟢 Active (Upgraded) | Zero-Hardcoding Matrix + Ponytail Whole-Repo Lean Audit (de-hardcoding, dead code, bloat cut). |
+| [`code-review-excellence`](file:///.agent/skills/code-review-excellence/) | `code-review-excellence` | Code Review | 🟢 Active (Upgraded) | 6-Axis Review (absorbed `ponytail-review` lean heuristics, load/scale checks, shortcut validation). |
 | [`code-simplification`](file:///.agent/skills/code-simplification/) | `code-simplification` | Quality | 🟢 Active | Refactors complex code for readability while preserving exact behavior. |
 | [`conductor-implement`](file:///.agent/skills/conductor-implement/) | `conductor-implement` | Conductor | 🟢 Active | Executes tasks from tracks adhering to TDD checkpoints and test-first verification. |
 | [`conductor-manage`](file:///.agent/skills/conductor-manage/) | `conductor-manage` | Conductor | 🟢 Active | Manages track lifecycle: archive completed tracks, restore, rename, cleanup. |
@@ -78,6 +78,7 @@ This document is the official tracking registry and catalog ledger for the **Ski
 | [`observability-and-instrumentation`](file:///.agent/skills/observability-and-instrumentation/) | `observability-and-instrumentation` | Backend | 🟢 Active | Structured logging, metrics, distributed tracing, and health monitoring. |
 | [`pdf`](file:///.agent/skills/pdf/) | `pdf` | Documents | 🟢 Active | Programmatic PDF parsing, table extraction, OCR, form-filling, and merging. |
 | [`performance-optimization`](file:///.agent/skills/performance-optimization/) | `performance-optimization` | Backend | 🟢 Active | Profiles and eliminates bottlenecks across frontend, backend, and DB queries. |
+| [`ponytail`](file:///.agent/skills/ponytail/) | `ponytail` | Methodology | 🟢 Active (Synthesized) | Lazy senior dev mindset: 6-step Decision Ladder, YAGNI, shortcut debt ledger, levels lite/full/ultra. |
 | [`pptx`](file:///.agent/skills/pptx/) | `pptx` | Documents | 🟢 Active | Creation, parsing, slide layout manipulation, and editing for PowerPoint. |
 | [`redesign-existing-projects`](file:///.agent/skills/redesign-existing-projects/) | `redesign-existing-projects` | Frontend | 🟢 Active | Audits and upgrades legacy web interfaces to premium agency quality. |
 | [`security-and-hardening`](file:///.agent/skills/security-and-hardening/) | `security-and-hardening` | Backend | 🟢 Active | Hardens applications against OWASP Top 10, supply chain risks, and leaks. |
@@ -170,6 +171,14 @@ This document is the official tracking registry and catalog ledger for the **Ski
 - Added full sub-agent asset definitions: `researcher.md`, `writer.md`, `coder.md`, `verifier.md`.
 - Added role catalog (`references/roles.md`) and strict JSON handoff output schemas (`references/schemas.md`).
 - Repository count updated to 67 active skills.
+
+### 2026-10-18 — Ponytail Minimalist Senior Dev Synthesis
+- **Synthesized [`ponytail`](file:///.agent/skills/ponytail/)**: Added the master "lazy senior developer" skill from `DietrichGebert/ponytail`. Implements the 6-Step Decision Ladder (YAGNI $\to$ Codebase reuse $\to$ Stdlib/platform $\to$ Installed dep $\to$ One-liner $\to$ Minimum code), 3 operational levels (`lite`, `full`, `ultra`), shortcut debt tracking (`shortcut:` tag protocol), and benchmark references.
+- **Positively Upgraded [`code-review-excellence`](file:///.agent/skills/code-review-excellence/)**: Absorbed `ponytail-review` into a comprehensive 6-Axis Review Framework, adding Axis 6 (Lean & Waste Audit: delete, reuse, stdlib/native, yagni, merge/split) and concurrency/load scale checks (races, per-item queries, unbounded growth).
+- **Positively Upgraded [`clean-code-frontend-audit`](file:///.agent/skills/clean-code-frontend-audit/)**: Absorbed `ponytail-audit` to provide whole-repo health and lean waste audits, estimating line reduction and categorizing issues by severity.
+- **Consolidation Standard**: Synthesized 6 upstream splinter skills into 1 unified master skill + 2 existing skill evolutions, maintaining zero redundancy.
+- Repository count updated to 68 active skills.
+
 
 
 

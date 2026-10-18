@@ -1,16 +1,12 @@
 ---
 name: code-review-excellence
 description: >-
-  Master code review combining automated multi-tier static analysis, security
-  vulnerability scanning, 5-axis review framework (correctness, readability,
-  architecture, security, performance), and constructive PR feedback with
-  severity grading. Activate when reviewing pull requests, diffs, git commits,
-  or pre-merge code changes.
+  Master code review combining automated multi-tier static analysis, security vulnerability scanning, 6-axis review framework (correctness, readability, architecture, security, performance, lean/waste audit), load/concurrency checks, and constructive PR feedback with severity grading. Activate when reviewing pull requests, diffs, git commits, or pre-merge code changes.
 ---
 
 # Code Review Excellence
 
-Transform code review into a rigorous quality gate and continuous knowledge-sharing engine. Combines automated static analysis patterns (OWASP, Semgrep, CodeQL) with multi-axis quality evaluation, structural remedies, and empathetic, actionable, severity-graded feedback.
+Transform code review into a rigorous quality gate and continuous knowledge-sharing engine. Combines automated static analysis patterns (OWASP, Semgrep, CodeQL) with multi-axis quality evaluation, ruthless lean code heuristics (Ponytail), structural remedies, and empathetic, actionable, severity-graded feedback.
 
 **The approval standard:** Approve a change when it definitely improves overall code health, even if it isn't perfect. Perfect code doesn't exist — the goal is continuous improvement. Don't block a change because it isn't exactly how you would have written it. If it improves the codebase and follows the project's conventions, approve it.
 
@@ -22,7 +18,7 @@ Transform code review into a rigorous quality gate and continuous knowledge-shar
 - Performing pre-merge code quality, security, and performance audits
 - Evaluating code written by yourself, another agent, or a human
 - Refactoring existing code or reviewing bug fixes (both fix and regression tests)
-- User asks to "review this PR", "review my code", "audit diff"
+- User asks to "review this PR", "review my code", "audit diff", "is this over-engineered", "find bloat"
 
 ## Do Not Use This Skill
 
@@ -38,7 +34,7 @@ Transform code review into a rigorous quality gate and continuous knowledge-shar
 flowchart TD
     Diff["🔍 Input Git Diff / PR"] --> T1["1. Triage & Scope Sizing"]
     T1 --> T2["2. Security & Vulnerability Audit"]
-    T2 --> T3["3. Five-Axis Deep Analysis"]
+    T2 --> T3["3. Six-Axis Deep Analysis (incl. Lean/Waste)"]
     T3 --> T4["4. Severity-Graded Feedback & Diff Solutions"]
 ```
 
@@ -69,13 +65,13 @@ Scan the diff for critical security flaws:
 - **Data Privacy**: PII leakage in structured logs, unencrypted sensitive fields.
 - **Supply Chain**: Unpinned dependencies, vulnerable packages (`npm audit`), untrusted sources.
 
-### Tier 3: The Five-Axis Deep Analysis
+### Tier 3: The Six-Axis Deep Analysis
 
-Every review evaluates code across these five core dimensions:
+Every review evaluates code across these six core dimensions:
 
-#### 1. Correctness
+#### 1. Correctness & Edge Integrity
 - Does it match the spec or task requirements?
-- Are edge cases handled (null, empty, boundary values)?
+- Are edge cases handled (null, empty, boundary values, time zones, floating-point rounding)?
 - Are error paths handled (not just the happy path)?
 - **Review tests first**: Do tests test behavior (not implementation)? Invert a condition in the change — if tests stay green, name the missing test case!
 
@@ -87,21 +83,32 @@ Every review evaluates code across these five core dimensions:
 - Are there dead code artifacts (`_unused`, backward-compat shims, commented-out code)?
 - Is a new conditional bolted onto an unrelated flow? Push it into its own helper/policy instead.
 
-#### 3. Architecture
+#### 3. Architecture & Boundary Discipline
 - Does the change fit system design and maintain clean module boundaries?
 - Are dependencies flowing in the right direction (no circular dependencies)?
 - **Does this refactor reduce complexity or just relocate it?** Count concepts a reader must hold. Prefer restructuring that makes branches disappear over polishing an abstraction.
 - Is feature-specific logic leaking into shared modules? Keep logic in its owning layer.
 - Are type boundaries explicit? Avoid gratuitous `any`, unchecked casts, or silent fallbacks.
 
-#### 4. Security
+#### 4. Security & Trust Boundaries
 - Input sanitized and validated at boundaries. External data sources treated as untrusted.
+- No secrets, API keys, or tokens in source code.
+- Authorization checked on every resource access (IDOR prevention).
 
-#### 5. Performance
-- Any N+1 query patterns?
-- Any unbounded loops or unconstrained data fetching?
-- Any synchronous operations blocking async loops?
-- Unnecessary re-renders in UI components or missing list pagination?
+#### 5. Performance, Scale & Concurrency (Ponytail Load Check)
+- **Check-then-write races:** Are database or memory checks safe under concurrent requests?
+- **Query & loop efficiency:** Any N+1 query patterns or work repeated inside hot loops?
+- **Memory leaks & growth:** Any caches, arrays, or event listeners that only grow and never evict?
+- **Process isolation:** Is in-memory state mistakenly assumed to be shared across multi-node or serverless processes?
+
+#### 6. Lean & Waste Audit (The Ponytail Heuristic)
+Evaluate whether every new line of code actually earns its right to exist:
+- **Delete:** Dead code, speculative flexibility, unused config options, flags nobody sets.
+- **Reuse:** Did the author reinvent a utility, component, or pattern that already exists in the repo? (Point directly to the existing file path).
+- **Stdlib / Platform first:** Did the author install a new dependency for something the standard library or browser platform already does natively?
+- **YAGNI:** Single-implementation interfaces, single-product factories, passthrough wrappers that add no value.
+- **Merge vs Split:** Are near-copies merged? Are functions split strictly by separate responsibility (never arbitrarily by line count)?
+- **Shortcut Verification:** If the change takes an intentional shortcut, does it have a clear comment tag: `// shortcut: <the ceiling / limit>, <when or how to upgrade>`? Flag any shortcut without an explicit upgrade path.
 
 ### Tier 4: Severity-Graded Feedback & Structural Remedies
 
