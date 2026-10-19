@@ -311,6 +311,18 @@ PLAN:
 
 This catches wrong directions before you've built on them. It's a 30-second investment that prevents 30-minute rework.
 
+### Karpathy's Declarative Goal Loops
+
+Transform vague imperative instructions into declarative goals with explicit verification criteria:
+
+| Imperative Request | Declarative Success Goal | Verification Loop |
+|---|---|---|
+| "Add input validation" | "Write schema unit tests for invalid inputs, then make them pass" | `npm test -- validation.test.ts` |
+| "Fix authentication bug" | "Write a reproducing test that fails, then apply fix until green" | `pytest tests/test_auth.py` |
+| "Refactor database query" | "Confirm test suite passes before and after with zero behavior change" | `cargo test -- test_db` |
+
+LLMs loop reliably when given a concrete success condition. Vague requests ("make it work") result in drift.
+
 ## Anti-Patterns
 
 | Anti-Pattern | Problem | Fix |

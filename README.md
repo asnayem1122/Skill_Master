@@ -5,12 +5,12 @@
 ### The Modular AI Agent Engineering OS for Google Antigravity
 
 [![Platform](https://img.shields.io/badge/Platform-Google%20Antigravity-0C1118?style=flat-square&logo=google&logoColor=4285F4&labelColor=0C1118&color=4285F4)](https://antigravity.google)
-[![Skills](https://img.shields.io/badge/Active%20Skills-68%20Verified-00F0B5?style=flat-square&labelColor=0C1118)](Catalog.md)
+[![Skills](https://img.shields.io/badge/Active%20Skills-68%20Git%20%7C%2072%20Local-00F0B5?style=flat-square&labelColor=0C1118)](Catalog.md)
 [![Token Overhead](https://img.shields.io/badge/Context%20Overhead-~3k%20tokens%20(0.3%25)-65D8FF?style=flat-square&labelColor=0C1118)](#-token-efficiency-how-progressive-disclosure-works)
 [![Sync Latency](https://img.shields.io/badge/NTFS%20Junction-0ms%20Live%20Sync-00F0B5?style=flat-square&labelColor=0C1118)](#-global-antigravity-integration)
 [![CLI Engine](https://img.shields.io/badge/CLI%20Tool-Zero--Dependency-FFB800?style=flat-square&labelColor=0C1118)](#-on-demand-skills-cli-skills-clijs)
 [![Disaster Recovery](https://img.shields.io/badge/Disaster%20Recovery-1--Click%20Restore-FF5F56?style=flat-square&labelColor=0C1118)](#-disaster-recovery--windows-reinstallation-guide)
-[![License](https://img.shields.io/badge/License-MIT-white?style=flat-square&labelColor=0C1118&color=334155)](LICENSE)
+[![License](https://img.shields.io/badge/License-Apache--2.0-4285F4?style=flat-square&labelColor=0C1118)](LICENSE)
 
 <p align="center">
   <b>Context-Driven Development</b> • <b>Strict TDD Cycles</b> • <b>Evidence-Gated Handoffs</b> • <b>Lazy Senior Dev Discipline</b>
@@ -152,7 +152,7 @@ To ensure **every project on the system** automatically has access to Skill Mast
 │       D:\Code\Skill_Master                   │
 │       (Single Source of Truth)               │
 │                                              │
-│       .agent/skills/ [68 skills]             │
+│       .agent/skills/ [68 Git | 72 Local]     │
 └──────────────────────┬───────────────────────┘
                        │  NTFS Directory Junction
                        │  (Instant 0ms Hardlink)
@@ -171,9 +171,9 @@ To ensure **every project on the system** automatically has access to Skill Mast
 - `skills-cli.js sync-global` is also available as a fallback snapshot copier if unlinked environments ever require it.
 
 ### 2. Token Efficiency: How "Progressive Disclosure" Works
-- **Does having 68 skills consume huge tokens in every project?** **No.**
+- **Does having 72 skills consume huge tokens in every project?** **No.**
 - Antigravity never dumps entire skill manuals, scripts, or checklists into the context window.
-- **Level 1 (System Prompt Index)**: Antigravity only loads a compact 2-line summary per skill (YAML `name` and `description`). For 68 skills, this is only ~**3,000 tokens** total (~0.3% of a 1M token context, or ~1.5% of 200k).
+- **Level 1 (System Prompt Index)**: Antigravity only loads a compact 2-line summary per skill (YAML `name` and `description`). For 72 skills, this is only ~**3,200 tokens** total (~0.3% of a 1M token context, or ~1.6% of 200k).
 - **Level 2 (On-Demand Activation)**: The full `SKILL.md` body, checklists, reference documents, and scripts are loaded into context **only when that specific skill is actually invoked** by the agent or user.
 
 ### 3. Clean Workspace Principle (Zero-Boilerplate Projects)
@@ -188,7 +188,7 @@ To ensure **every project on the system** automatically has access to Skill Mast
 
 ## 🗂️ Repository Catalog & Bento Directory
 
-All **68 active skills** are categorized into 6 core engineering domains:
+All **68 Git-tracked skills** (72 total local skills) are categorized into 6 core engineering domains:
 
 ### 🧠 Domain 1: Intent, Ideation & Product Discovery
 | Skill ID | Focus & Purpose |
@@ -237,15 +237,18 @@ All **68 active skills** are categorized into 6 core engineering domains:
 | [`conductor-validator`](file:///.agent/skills/conductor-validator/SKILL.md) | Validate Conductor artifacts for completeness & consistency |
 | [`full-stack-orchestration`](file:///.agent/skills/full-stack-orchestration/SKILL.md) | Coordinated feature delivery across frontend, backend & database |
 
-### 🛡️ Domain 5: Quality Gates, Verification & Delivery
+### 🛡️ Domain 5: Quality Gates, AppSec & Delivery
 | Skill ID | Focus & Purpose |
 | :--- | :--- |
 | [`verifying-before-completion`](file:///.agent/skills/verifying-before-completion/SKILL.md) | Anti-hallucination evidence gate before declaring task success |
+| [`security-and-hardening`](file:///.agent/skills/security-and-hardening/SKILL.md) | OWASP 2025, ASVS 5.0, LLM 2026, Agentic ASI01-ASI10 & false-positive triage |
+| [`security-threat-model`](file:///.agent/skills/security-threat-model/SKILL.md) | Repository-grounded AppSec threat modeling, trust boundaries & abuse paths |
+| [`codeql-and-static-analysis`](file:///.agent/skills/codeql-and-static-analysis/SKILL.md) | CodeQL taint tracking, database quality gates & offline Semgrep (`--metrics=off`) |
+| [`security-fuzzing-and-ctf`](file:///.agent/skills/security-fuzzing-and-ctf/SKILL.md) | Offensive input fuzzing (SQLi/cmd), credential matrices & LLM red-teaming |
 | [`webapp-testing`](file:///.agent/skills/webapp-testing/SKILL.md) | Playwright test automation & Chrome DevTools MCP inspection |
 | [`troubleshooting-applications`](file:///.agent/skills/troubleshooting-applications/SKILL.md) | Stop-the-line debugging, systematic triage trees & root-cause fixes |
 | [`code-review-excellence`](file:///.agent/skills/code-review-excellence/SKILL.md) | 6-axis review, static analysis, security, scale & lean bloat audit |
 | [`clean-code-frontend-audit`](file:///.agent/skills/clean-code-frontend-audit/SKILL.md) | Zero-hardcoding matrix & whole-repo lean waste audits |
-| [`security-and-hardening`](file:///.agent/skills/security-and-hardening/SKILL.md) | OWASP Top 10 prevention, dependency audits, & privacy compliance |
 | [`observability-and-instrumentation`](file:///.agent/skills/observability-and-instrumentation/SKILL.md) | Structured logging, RED metrics, tracing, & health alerts |
 | [`git-advanced-workflows`](file:///.agent/skills/git-advanced-workflows/SKILL.md) | Advanced git workflows (rebase, worktrees, bisect, reflog) |
 | [`git-pr-workflows-git-workflow`](file:///.agent/skills/git-pr-workflows-git-workflow/SKILL.md) | Trunk-based delivery, save points, semver & PR scaffolding |
@@ -255,7 +258,8 @@ All **68 active skills** are categorized into 6 core engineering domains:
 ### 🎨 Domain 6: Design, UI/UX & Ecosystem Integrations
 | Skill ID | Focus & Purpose |
 | :--- | :--- |
-| [`frontend-design`](file:///.agent/skills/frontend-design/SKILL.md) | Distinctive anti-slop visual design, Bento grids & fluid motion |
+| [`frontend-design`](file:///.agent/skills/frontend-design/SKILL.md) | Impeccable (4 modes, 24+ verbs) + Taste anti-slop rules & physics |
+| [`figma-implement-design`](file:///.agent/skills/figma-implement-design/SKILL.md) | Translates Figma designs to production code with 1:1 visual parity |
 | [`frontend-ui-engineering`](file:///.agent/skills/frontend-ui-engineering/SKILL.md) | Production-quality, accessible, responsive UI components |
 | [`minimalist-ui`](file:///.agent/skills/minimalist-ui/SKILL.md) | Clean editorial interfaces with warm monochrome palettes |
 | [`redesign-existing-projects`](file:///.agent/skills/redesign-existing-projects/SKILL.md) | Upgrade existing web interfaces to premium agency quality |
@@ -277,10 +281,10 @@ All **68 active skills** are categorized into 6 core engineering domains:
 | [`skill-creator`](file:///.agent/skills/skill-creator/SKILL.md) | Meta-skill for authoring new Antigravity skills |
 | [`algorithmic-art`](file:///.agent/skills/algorithmic-art/SKILL.md) | p5.js generative art with seeded randomness |
 | [`slack-gif-creator`](file:///.agent/skills/slack-gif-creator/SKILL.md) | Animated GIFs optimized for Slack constraints |
-| [`docx`](file:///.agent/skills/docx/SKILL.md) | Programmatic Word .docx creation, parsing, & templates |
-| [`pdf`](file:///.agent/skills/pdf/SKILL.md) | PDF parsing, table extraction, OCR, form-filling, & merging |
-| [`pptx`](file:///.agent/skills/pptx/SKILL.md) | Presentation creation, slide layouts, & text extraction |
-| [`xlsx`](file:///.agent/skills/xlsx/SKILL.md) | Spreadsheet parsing, formulas, charting, & data cleaning |
+| [`docx`](file:///.agent/skills/docx/SKILL.md) | Word .docx creation, parsing, & templates (Local Workspace) |
+| [`pdf`](file:///.agent/skills/pdf/SKILL.md) | PDF parsing, OCR, form-filling, & merging (Local Workspace) |
+| [`pptx`](file:///.agent/skills/pptx/SKILL.md) | Presentation creation & layouts (Local Workspace) |
+| [`xlsx`](file:///.agent/skills/xlsx/SKILL.md) | Spreadsheet parsing, formulas, & charting (Local Workspace) |
 
 ---
 

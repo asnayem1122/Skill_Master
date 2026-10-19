@@ -8,16 +8,17 @@ This document is the official tracking registry and catalog ledger for the **Ski
 
 | Metric | Current Count | Target | Status |
 |:-------|:--------------|:-------|:-------|
-| **Total Active Skills** | **68** (Zero Duplicates / Unified Themes) | 50+ | 🟢 Optimized |
+| **Total Active Skills** | **68 Git-Tracked / 72 Total Local** | 50+ | 🟢 Optimized |
 | **Meta & Ecosystem Tools** | 2 (`skill-creator`, `antigravity-skills-manager`) | 2 | 🟢 Complete |
 | **Orchestration & Sub-Agents** | 1 (`agent-orchestrator`) | 1 | 🟢 Complete |
 | **Conductor CDD Lifecycle** | 7 (`conductor-setup`, `new-track`, `implement`, etc.) | 7 | 🟢 Streamlined |
 | **Ideation & Discovery** | 2 (`interview-me`, `brainstorming-ideas`) | 2 | 🟢 Complete |
 | **Planning & Methodology** | 8 (`ponytail`, `spec-driven`, `writing-plans`, etc.) | 7 | 🟢 Complete |
 | **Architecture & Full-Stack** | 3 (`architect-review`, `full-stack`, `api-engineering`) | 3 | 🟢 Complete |
-| **Backend & Infrastructure** | 4 (`database`, `security`, `observability`, `perf`) | 4 | 🟢 Complete |
+| **Backend & Infrastructure** | 3 (`database`, `observability`, `perf`) | 3 | 🟢 Complete |
+| **AppSec & Advanced Security** | 4 (`security-and-hardening`, `security-threat-model`, `codeql`, `security-fuzzing`) | 4 | 🟢 Complete |
 | **Testing & Verification** | 4 (`tdd`, `unit-testing`, `webapp-testing`, `verify-gate`) | 4 | 🟢 Complete |
-| **Frontend & Visual Design** | 6 (`frontend-design`, `ui-engineering`, `accessible`, etc.)| 6 | 🟢 Complete |
+| **Frontend & Visual Design** | 7 (`frontend-design`, `ui-engineering`, `accessible`, `minimalist-ui`, `redesign`, `figma-implement-design`, `web-design`)| 7 | 🟢 Complete |
 | **Vercel & React Ecosystem** | 5 (`deploy-to-vercel`, `optimize`, `best-practices`, etc.) | 5 | 🟢 Complete |
 | **Mobile (React Native)** | 1 (`vercel-react-native-skills`) | 1 | 🟢 Complete |
 | **Data Viz & Creative** | 6 (`dataviz-recharts`, `algorithmic-art`, `canvas`, etc.) | 6 | 🟢 Complete |
@@ -25,12 +26,12 @@ This document is the official tracking registry and catalog ledger for the **Ski
 | **Git & DevOps** | 3 (`git-pr-workflow`, `git-advanced`, `ci-cd`) | 3 | 🟢 Complete |
 | **Reliability & Lifecycle** | 3 (`troubleshooting`, `shipping-and-launch`, `migration`) | 3 | 🟢 Complete |
 | **Docs & Communication** | 5 (`documentation-engineering`, `writing`, `internal`, etc.)| 5 | 🟢 Complete |
-| **Document Formats (Office/PDF)** | 4 (`docx`, `pdf`, `pptx`, `xlsx`) | 4 | 🟢 Complete |
+| **Document Formats (Local Workspace)** | 4 (`docx`, `pdf`, `pptx`, `xlsx` — Anthropic Local) | 4 | 🟢 Isolated |
 | **On-Demand Catalog Skills** | 307 skills (via `skills-cli.js`) | 300+ | 🟢 Integrated |
 
 ---
 
-## 🗂️ Active Skills Catalog (68 Non-Redundant Skills)
+## 🗂️ Active Skills Catalog (68 Git-Tracked / 72 Total Local Skills)
 
 | Skill Folder | YAML Identifier | Domain | Status | Description & Value |
 |:-------------|:----------------|:-------|:-------|:--------------------|
@@ -48,6 +49,7 @@ This document is the official tracking registry and catalog ledger for the **Ski
 | [`clean-code-frontend-audit`](file:///.agent/skills/clean-code-frontend-audit/) | `clean-code-frontend-audit` | Quality & Audit | 🟢 Active (Upgraded) | Zero-Hardcoding Matrix + Ponytail Whole-Repo Lean Audit (de-hardcoding, dead code, bloat cut). |
 | [`code-review-excellence`](file:///.agent/skills/code-review-excellence/) | `code-review-excellence` | Code Review | 🟢 Active (Upgraded) | 6-Axis Review (absorbed `ponytail-review` lean heuristics, load/scale checks, shortcut validation). |
 | [`code-simplification`](file:///.agent/skills/code-simplification/) | `code-simplification` | Quality | 🟢 Active | Refactors complex code for readability while preserving exact behavior. |
+| [`codeql-and-static-analysis`](file:///.agent/skills/codeql-and-static-analysis/) | `codeql-and-static-analysis` | Security | 🟢 Active | CodeQL interprocedural taint analysis, data extension modeling, and offline Semgrep scanning (`--metrics=off`). |
 | [`conductor-implement`](file:///.agent/skills/conductor-implement/) | `conductor-implement` | Conductor | 🟢 Active | Executes tasks from tracks adhering to TDD checkpoints and test-first verification. |
 | [`conductor-manage`](file:///.agent/skills/conductor-manage/) | `conductor-manage` | Conductor | 🟢 Active | Manages track lifecycle: archive completed tracks, restore, rename, cleanup. |
 | [`conductor-new-track`](file:///.agent/skills/conductor-new-track/) | `conductor-new-track` | Conductor | 🟢 Active | Scaffolds new feature tracks with specifications, phases, and TDD task lists. |
@@ -63,9 +65,10 @@ This document is the official tracking registry and catalog ledger for the **Ski
 | [`deprecation-and-migration`](file:///.agent/skills/deprecation-and-migration/) | `deprecation-and-migration` | Lifecycle | 🟢 Active | Safe zero-downtime deprecation workflows and expand/contract patterns. |
 | [`discernment-nudge`](file:///.agent/skills/discernment-nudge/) | `discernment-nudge` | Communication | 🟢 Active | Appends probing questions to substantive advice to stress-test assumptions. |
 | [`documentation-engineering`](file:///.agent/skills/documentation-engineering/) | `documentation-engineering` | Docs | 🟢 Active (Merged) | Merged `doc-coauthoring` + `documentation-and-adrs` (3-stage authoring + ADRs). |
-| [`docx`](file:///.agent/skills/docx/) | `docx` | Documents | 🟢 Active | Programmatic creation, parsing, and templating of Word `.docx` documents. |
+| [`docx`](file:///.agent/skills/docx/) | `docx` | Documents | 🟢 Local Workspace | Programmatic Word `.docx` parsing and templating (Anthropic local source-available). |
 | [`doubt-driven-development`](file:///.agent/skills/doubt-driven-development/) | `doubt-driven-development` | Methodology | 🟢 Active | Adversarial fresh-context review of high-stakes architectural decisions. |
-| [`frontend-design`](file:///.agent/skills/frontend-design/) | `frontend-design` | Frontend | 🟢 Active (Merged) | Merged `frontend-design` + `design-taste` + `high-end` (Anti-slop, Bento, Physics). |
+| [`figma-implement-design`](file:///.agent/skills/figma-implement-design/) | `figma-implement-design` | Frontend | 🟢 Active | Translates Figma designs to production code with 1:1 visual parity via Figma MCP. |
+| [`frontend-design`](file:///.agent/skills/frontend-design/) | `frontend-design` | Frontend | 🟢 Active (Synthesized) | Synthesized `frontend-design` + `impeccable` + `taste-skill` (4 modes, 24+ verbs, 247-site anti-slop rules, spring physics). |
 | [`frontend-ui-engineering`](file:///.agent/skills/frontend-ui-engineering/) | `frontend-ui-engineering` | Frontend | 🟢 Active | Builds production-quality, accessible, responsive UI components. |
 | [`full-stack-orchestration`](file:///.agent/skills/full-stack-orchestration/) | `full-stack-orchestration` | Architecture | 🟢 Active | Coordinates multi-tier feature implementation (DB, API, Frontend, Tests). |
 | [`git-advanced-workflows`](file:///.agent/skills/git-advanced-workflows/) | `git-advanced-workflows` | Git | 🟢 Active | Complex Git operations: interactive rebase, worktrees, bisect, reflog. |
@@ -76,12 +79,14 @@ This document is the official tracking registry and catalog ledger for the **Ski
 | [`mcp-builder`](file:///.agent/skills/mcp-builder/) | `mcp-builder` | Tooling | 🟢 Active | Builds high-quality Model Context Protocol (MCP) servers in Python/TypeScript. |
 | [`minimalist-ui`](file:///.agent/skills/minimalist-ui/) | `minimalist-ui` | Frontend | 🟢 Active | Clean editorial interfaces with warm monochrome palettes and flat bento grids. |
 | [`observability-and-instrumentation`](file:///.agent/skills/observability-and-instrumentation/) | `observability-and-instrumentation` | Backend | 🟢 Active | Structured logging, metrics, distributed tracing, and health monitoring. |
-| [`pdf`](file:///.agent/skills/pdf/) | `pdf` | Documents | 🟢 Active | Programmatic PDF parsing, table extraction, OCR, form-filling, and merging. |
+| [`pdf`](file:///.agent/skills/pdf/) | `pdf` | Documents | 🟢 Local Workspace | Programmatic PDF parsing, table extraction, OCR, form-filling, and merging (Anthropic local source-available). |
 | [`performance-optimization`](file:///.agent/skills/performance-optimization/) | `performance-optimization` | Backend | 🟢 Active | Profiles and eliminates bottlenecks across frontend, backend, and DB queries. |
-| [`ponytail`](file:///.agent/skills/ponytail/) | `ponytail` | Methodology | 🟢 Active (Synthesized) | Lazy senior dev mindset: 6-step Decision Ladder, YAGNI, shortcut debt ledger, levels lite/full/ultra. |
-| [`pptx`](file:///.agent/skills/pptx/) | `pptx` | Documents | 🟢 Active | Creation, parsing, slide layout manipulation, and editing for PowerPoint. |
+| [`ponytail`](file:///.agent/skills/ponytail/) | `ponytail` | Methodology | 🟢 Active (Synthesized) | Lazy senior dev mindset: Karpathy's 4 Laws of LLM Coding, 6-step Decision Ladder, YAGNI, shortcut debt ledger. |
+| [`pptx`](file:///.agent/skills/pptx/) | `pptx` | Documents | 🟢 Local Workspace | Creation, parsing, slide layout manipulation, and editing for PowerPoint (Anthropic local source-available). |
 | [`redesign-existing-projects`](file:///.agent/skills/redesign-existing-projects/) | `redesign-existing-projects` | Frontend | 🟢 Active | Audits and upgrades legacy web interfaces to premium agency quality. |
-| [`security-and-hardening`](file:///.agent/skills/security-and-hardening/) | `security-and-hardening` | Backend | 🟢 Active | Hardens applications against OWASP Top 10, supply chain risks, and leaks. |
+| [`security-and-hardening`](file:///.agent/skills/security-and-hardening/) | `security-and-hardening` | Security | 🟢 Active (Synthesized) | Synthesized OWASP Top 10:2025, ASVS 5.0, LLM Top 10:2026, Agentic ASI01-ASI10, Rule of 4 false-positive triage. |
+| [`security-fuzzing-and-ctf`](file:///.agent/skills/security-fuzzing-and-ctf/) | `security-fuzzing-and-ctf` | Security | 🟢 Active | Offensive security fuzzing (SQLi, NoSQL, cmdi), credential policy testing, sensitive regex discovery, and LLM safety red-teaming (strict authorization guardrails). |
+| [`security-threat-model`](file:///.agent/skills/security-threat-model/) | `security-threat-model` | Security | 🟢 Active | Repository-grounded AppSec threat modeling: trust boundaries, assets, attacker models, abuse paths, and Mermaid architecture diagrams. |
 | [`shipping-and-launch`](file:///.agent/skills/shipping-and-launch/) | `shipping-and-launch` | Lifecycle | 🟢 Active | Production release checklists, staged rollouts, and automated rollback plans. |
 | [`skill-creator`](file:///.agent/skills/skill-creator/) | `creating-skills` | Meta | 🟢 Active | Scaffolds compliant Antigravity skills following `<500` lines standard. |
 | [`slack-gif-creator`](file:///.agent/skills/slack-gif-creator/) | `slack-gif-creator` | Creative | 🟢 Active | Generates and optimizes animated GIFs for Slack dimension/size limits. |
@@ -101,7 +106,7 @@ This document is the official tracking registry and catalog ledger for the **Ski
 | [`webapp-testing`](file:///.agent/skills/webapp-testing/) | `webapp-testing` | Testing | 🟢 Active (Merged) | Merged `browser-testing-with-devtools` + `webapp-testing` (Playwright + MCP). |
 | [`writing-guidelines`](file:///.agent/skills/writing-guidelines/) | `writing-guidelines` | Docs | 🟢 Active | Audits documentation and copy for clarity, structure, and voice/tone. |
 | [`writing-plans`](file:///.agent/skills/writing-plans/) | `writing-plans` | Planning | 🟢 Active (Upgraded) | Absorbed `planning-and-task-breakdown` (Vertical slicing, dependency graphs). |
-| [`xlsx`](file:///.agent/skills/xlsx/) | `xlsx` | Documents | 🟢 Active | Programmatic spreadsheet parsing, formulas, charting, and data cleaning. |
+| [`xlsx`](file:///.agent/skills/xlsx/) | `xlsx` | Documents | 🟢 Local Workspace | Programmatic spreadsheet parsing, formulas, charting, and data cleaning (Anthropic local source-available). |
 
 ---
 
@@ -120,6 +125,9 @@ This document is the official tracking registry and catalog ledger for the **Ski
 | **Vercel Deploy Merge** | `deploy-to-vercel` + `vercel-cli-with-tokens` | [`deploy-to-vercel`](file:///.agent/skills/deploy-to-vercel/) | Unified Git preview deploys with headless token-based CI workflows. |
 | **Documentation Merge** | `doc-coauthoring` + `documentation-and-adrs` | [`documentation-engineering`](file:///.agent/skills/documentation-engineering/) | Unified 3-stage collaborative drafting with Architecture Decision Records (ADRs). |
 | **Webapp Testing Merge** | `browser-testing-with-devtools` + `webapp-testing`| [`webapp-testing`](file:///.agent/skills/webapp-testing/) | Unified Playwright test automation with Chrome DevTools MCP runtime inspection. |
+| **Frontend Design Elevation** | `pbakaus/impeccable` + `Leonxlnx/taste-skill` | [`frontend-design`](file:///.agent/skills/frontend-design/) | Absorbed 4 surface modes (Persuade/Operate/Read/Experience), 24+ design verbs, and 247-site anti-slop house rules matrix. |
+| **Karpathy Rigor Integration** | `forrestchang/andrej-karpathy-skills` | [`ponytail`](file:///.agent/skills/ponytail/) & [`context-engineering`](file:///.agent/skills/context-engineering/) | Absorbed 4 Laws of LLM Coding (Think Before Coding, Simplicity First, Surgical Changes, Goal-Driven Loops) and Confusion Protocol. |
+| **AppSec & AI Hardening Overhaul** | `agamm/claude-code-owasp` | [`security-and-hardening`](file:///.agent/skills/security-and-hardening/) | Upgraded to OWASP Top 10:2025, ASVS 5.0 (V1-V17), OWASP LLM 2026, Agentic ASI01-ASI10, and Rule of 4 false-positive triage. |
 
 ---
 
@@ -178,6 +186,32 @@ This document is the official tracking registry and catalog ledger for the **Ski
 - **Positively Upgraded [`clean-code-frontend-audit`](file:///.agent/skills/clean-code-frontend-audit/)**: Absorbed `ponytail-audit` to provide whole-repo health and lean waste audits, estimating line reduction and categorizing issues by severity.
 - **Consolidation Standard**: Synthesized 6 upstream splinter skills into 1 unified master skill + 2 existing skill evolutions, maintaining zero redundancy.
 - Repository count updated to 68 active skills.
+
+### 2026-10-19 — Security Hardening, AppSec Expansion & Design Elevation Release (v2.4.0)
+- **Resolved License Mismatch & Document Governance**:
+  - Harmonized repository license to **Apache-2.0** (updating badge and metadata).
+  - Isolated Anthropic proprietary document skills (`docx`, `pdf`, `pptx`, `xlsx`) in `.gitignore` and untracked them from git index to guarantee 100% legal compliance with Apache-2.0 redistribution terms, while retaining files locally on disk for seamless Antigravity runtime use via the NTFS junction.
+- **Frontend Design Elevation**:
+  - Synthesized **Impeccable** (`pbakaus/impeccable`) and **Taste** (`Leonxlnx/taste-skill`) into [`frontend-design`](file:///.agent/skills/frontend-design/):
+  - Added 4 surface modes (`Persuade`, `Operate`, `Read`, `Experience`).
+  - Added 24+ agency command verbs (`shape`, `critique`, `polish`, `bolder`, `quieter`, `distill`, `harden`, `onboard`, etc.).
+  - Added the 247-site anti-slop house rules matrix (`references/anti-slop-rules.md`).
+- **Karpathy Rigor Integration**:
+  - Integrated **Andrej Karpathy's 4 Laws of LLM Coding** into [`ponytail`](file:///.agent/skills/ponytail/) (Think Before Coding, Simplicity First, Surgical Changes, Goal-Driven Loops) and [`context-engineering`](file:///.agent/skills/context-engineering/) (Confusion Protocol and Declarative Success Loops).
+- **Comprehensive AppSec & AI Hardening Overhaul**:
+  - Completely updated [`security-and-hardening`](file:///.agent/skills/security-and-hardening/) incorporating `agamm/claude-code-owasp`:
+  - **OWASP Top 10:2025** (A01–A10, including supply chain security and mishandling of exceptional conditions).
+  - **ASVS 5.0** (May 2025 overhaul, V1–V17, L1/L2/L3 verification criteria).
+  - **OWASP Top 10 for LLM Applications (2026)** (LLM01–LLM10).
+  - **OWASP Top 10 for Agentic Applications (2026)** (ASI01–ASI10: Goal hijack, tool abuse, supply chain compromise, rogue agents).
+  - **Rule of 4** false-positive triage rubric to eliminate noise before reporting.
+- **4 New Specialized Skills Added**:
+  - [`security-threat-model`](file:///.agent/skills/security-threat-model/): Repository-grounded AppSec threat modeling with trust boundaries, assets, attacker models, abuse paths, and Mermaid architecture diagrams (from `openai/skills`).
+  - [`codeql-and-static-analysis`](file:///.agent/skills/codeql-and-static-analysis/): Interprocedural data-flow taint tracking, database quality gates, custom YAML data extensions, and offline Semgrep scanning (`--metrics=off`) (from `trailofbits/skills`).
+  - [`security-fuzzing-and-ctf`](file:///.agent/skills/security-fuzzing-and-ctf/): Offensive fuzzing probes (SQLi, NoSQL, cmdi), credential strength matrices, sensitive data regex patterns, and LLM safety red-teaming with prominent legal authorization guardrails (from `eyadkelleh/awesome-skills-security`).
+  - [`figma-implement-design`](file:///.agent/skills/figma-implement-design/): Canonical 7-step design-to-code workflow translating Figma designs to pixel-perfect production code via Figma MCP (from `figma/mcp-server-guide`).
+- **Catalog Metrics**: 68 active Git-tracked skills, 72 total local skills. 100% pass `node skills-cli.js installed` validation.
+
 
 
 

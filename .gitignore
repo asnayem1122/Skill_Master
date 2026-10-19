@@ -13,3 +13,9 @@ __pycache__/
 
 # Logs
 *.log
+
+# Proprietary/Source-available Anthropic Skills (retained locally, excluded from public git)
+.agent/skills/docx/
+.agent/skills/pdf/
+.agent/skills/pptx/
+.agent/skills/xlsx/
