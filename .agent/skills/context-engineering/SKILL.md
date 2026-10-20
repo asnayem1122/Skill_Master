@@ -75,7 +75,7 @@ Create a rules file that persists across sessions. This is the highest-leverage 
 - `.cursorrules` or `.cursor/rules/*.md` (Cursor)
 - `.windsurfrules` (Windsurf)
 - `.github/copilot-instructions.md` (GitHub Copilot)
-- `AGENTS.md` (OpenAI Codex)
+- `AGENTS.md` (OpenAI Codex / Antigravity)
 
 ### Level 2: Specs and Architecture
 
@@ -323,6 +323,13 @@ Transform vague imperative instructions into declarative goals with explicit ver
 
 LLMs loop reliably when given a concrete success condition. Vague requests ("make it work") result in drift.
 
+### Windows Subprocess & CLI Execution Guardrails
+
+When instructing or executing commands in Windows environments (PowerShell / Antigravity):
+1. **Always Auto-Confirm Package Runners**: Never run bare `npx` or `pnpm dlx` commands that prompt for package installation without an interactive TTY. Always specify `--yes` / `-y` (e.g. `npx --yes tsx`).
+2. **The Scratch Script Pattern**: Never execute multi-statement, import-heavy JS/TS code via complex inline `-e "..."` one-liners. Windows PowerShell quoting mangles semicolons, curly braces, and quotes. Always write a temporary `.tmp_*.ts` or `scratch/*.ts` file and run it cleanly.
+3. **Active Background Task Lifecycle**: If a command is backgrounded and outputs `Empty log`, never ignore it. Immediately inspect via `manage_task(Action: 'status', TaskId: '...')` and terminate hanging processes with `manage_task(Action: 'kill', TaskId: '...')`.
+
 ## Anti-Patterns
 
 | Anti-Pattern | Problem | Fix |
@@ -334,6 +341,8 @@ LLMs loop reliably when given a concrete success condition. Vague requests ("mak
 | Implicit knowledge | Agent doesn't know project-specific rules | Write it down in rules files — if it's not written, it doesn't exist |
 | Silent confusion | Agent guesses when it should ask | Surface ambiguity explicitly using the confusion management patterns above |
 | Context cliff | Waiting until the window is full before managing it — attention fragments and output quality drops abruptly at the limit | Start trimming at 75% capacity; compress rather than cut |
+| Blind CLI backgrounding | Agent ignores hung background tasks (`Empty log`) | Inspect with `manage_task(Action: 'status')` and kill stuck zombies |
+| Windows quote mangling | Complex `-e "..."` one-liners fail silently in PowerShell | Use the Scratch Script Pattern: write temporary file and run `npx --yes` |
 
 ## Common Rationalizations
 
@@ -352,6 +361,7 @@ LLMs loop reliably when given a concrete success condition. Vague requests ("mak
 - Agent quality degrades mid-task as the conversation grows — failed attempts, replaced drafts, and verbose tool output are not being trimmed
 - No rules file exists in the project
 - External data files or config treated as trusted instructions without verification
+- Tasks go into background and report `Empty log` without immediate agent investigation
 
 ## Verification
 
@@ -363,3 +373,4 @@ After setting up context, confirm:
 - [ ] Context is refreshed when switching between major tasks
 - [ ] During long sessions, context is actively managed: failed attempts and replaced drafts removed, live error and task definition protected
 - [ ] Task-critical content (current error, active constraint) is positioned last in context, not buried under background material
+- [ ] Background commands are proactively monitored with `manage_task`, and hanging tasks are killed immediately

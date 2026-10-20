@@ -218,3 +218,13 @@ This document is the official tracking registry and catalog ledger for the **Ski
 
 
 
+
+### 2026-10-20 — Windows CLI Execution Guardrails & Subprocess Task Triage Release
+- **Subprocess & Background Task Triage**:
+  - Enhanced [`troubleshooting-applications`](file:///.agent/skills/troubleshooting-applications/SKILL.md) with an explicit **Background Task & Subprocess Execution Triage Protocol** for Antigravity agents.
+  - Added real-time task inspection via `manage_task(Action: 'status')`, automatic detection of non-interactive prompt freezes, and fast termination of stuck zombie processes via `manage_task(Action: 'kill')`.
+- **Windows CLI Execution Guardrails**:
+  - Enhanced [`context-engineering`](file:///.agent/skills/context-engineering/SKILL.md) with mandatory `--yes` / `-y` rules on package runners (`npx --yes tsx`, `pnpm dlx --yes`) to prevent hanging prompts in headless subprocesses.
+  - Formalized the **Scratch Script Pattern** over inline `-e "..."` one-liners on Windows to eliminate PowerShell quoting, semicolon, and scriptblock parsing collisions.
+- **Repository Execution Governance**:
+  - Added root [`AGENTS.md`](file:///D:/Code/Skill_Master/AGENTS.md) defining hierarchical execution guardrails for all Antigravity agent sessions.

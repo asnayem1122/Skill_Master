@@ -3,7 +3,7 @@ name: troubleshooting-applications
 description: >-
   Systematic root-cause debugging, triage, and resilient error recovery across
   languages. Use when debugging errors, test failures, build breaks, crashes,
-  race conditions, intermittent bugs, or implementing fault-tolerant error
+  race conditions, intermittent bugs, hung background tasks, or implementing fault-tolerant error
   handling.
 ---
 
@@ -26,6 +26,7 @@ Symptom fixes are failures. If you have not completed Phase 1, do not propose or
 
 - Tests fail after a code change or build breaks
 - Runtime behavior doesn't match expectations or a bug report arrives
+- Background commands hang, freeze, timeout, or display `Empty log`
 - Investigating intermittent bugs, timing issues, race conditions, or memory leaks
 - Designing retry, timeout, fallback, circuit-breaker, or fault-tolerant API logic
 - Replacing vague or swallowed errors with structured, actionable diagnostics
@@ -119,6 +120,71 @@ Always fix the underlying cause, not the visual symptom:
 
 ---
 
+## ⚙️ Background Task & Subprocess Execution Triage (Antigravity & CLI)
+
+When executing terminal commands, agents frequently encounter hung processes, silent failures, or background task outputs reading `Empty log`. This occurs due to specific CLI execution anti-patterns on Windows.
+
+### 1. The Background Task Triage Loop
+
+```mermaid
+flowchart TD
+    Stuck["⚠️ Task Backgrounded or 'Empty log'"] --> Check["1. manage_task(Action: 'status', TaskId: '...')"]
+    Check --> Diag{"Diagnose Task Log"}
+    Diag -->|Waiting on stdin / interactive prompt| Kill["2. manage_task(Action: 'kill', TaskId: '...')"]
+    Diag -->|PowerShell quote or syntax collision| Kill
+    Diag -->|Legitimate build/bundle process| Wait["Wait or Increase WaitMsBeforeAsync"]
+    Kill --> Remediate["3. Apply Execution Safeguard & Re-run"]
+```
+
+When a command drops into the background unexpectedly or shows `Empty log`:
+1. **Inspect Immediately**: Never ignore a background task or assume it succeeded. Call `manage_task(Action: "status", TaskId: "<task-id>")` immediately to view real-time logs.
+2. **Detect Interactive Prompt Freezes**: Look for package installation queries such as `Need to install the following packages: ... (y)`. Subprocesses lack an interactive TTY, leaving the command frozen waiting for user keystrokes.
+3. **Kill Stuck Zombie Tasks Fast**: Call `manage_task(Action: "kill", TaskId: "<task-id>")` immediately. Never leave orphaned zombie tasks holding file locks or ports in the workspace.
+4. **Fix and Re-run Cleanly**: Apply the 3 Subprocess Safeguards below.
+
+---
+
+### 2. The 3 Non-Negotiable CLI Execution Safeguards
+
+#### Safeguard A: Mandatory `--yes` / `-y` on Package Runners
+Never invoke package runners without non-interactive bypass flags:
+```powershell
+# BAD ❌ (freezes waiting for interactive terminal confirmation):
+npx tsx script.ts
+pnpm dlx tsx script.ts
+
+# GOOD ✅ (bypasses prompt, runs non-interactively):
+npx --yes tsx script.ts
+pnpm dlx --yes tsx script.ts
+bunx tsx script.ts
+```
+
+#### Safeguard B: The Scratch Script Pattern (Never Use Complex `-e "..."` on Windows)
+On Windows, Antigravity commands execute in **PowerShell**, which forwards arguments to Windows batch wrappers (`npx.cmd`, `node.exe`). Complex inline `-e` one-liners containing semicolons (`;`), single/double quotes, and object brackets (`{ ... }`) get mangled by Windows escaping.
+
+- **BAD ❌ (Broken PowerShell Quoting & Semicolon Splitting)**:
+  ```powershell
+  npx tsx -e " import { DEMO_CATALOG } from './src/...'; console.log(DEMO_CATALOG.item); "
+  ```
+- **GOOD ✅ (The Scratch Script Pattern)**:
+  1. Write a temporary script using `write_file` to `<appDataDir>/brain/<conversation-id>/scratch/inspect.ts` (or `.tmp_inspect.ts` in workspace):
+     ```typescript
+     import { DEMO_CATALOG } from './src/features/products/demo-catalog';
+     console.log('autoParts count:', DEMO_CATALOG.autoParts?.length);
+     console.log('wideplus count:', DEMO_CATALOG.wideplus?.length);
+     ```
+  2. Execute cleanly and deterministically:
+     ```powershell
+     npx --yes tsx .tmp_inspect.ts
+     ```
+  3. Clean up the temporary file after completion.
+
+#### Safeguard C: Calibrate `WaitMsBeforeAsync` Thresholds
+- For synchronous inspections, compilations, test runs, or type-checks: set `WaitMsBeforeAsync: 8000` to `10000` ms.
+- Never use a low wait duration (e.g. 500ms) for commands expected to finish synchronously; doing so forces synchronous inspections into asynchronous background tasks prematurely.
+
+---
+
 ## Error Handling Architectural Best Practices
 
 ```python
@@ -162,6 +228,7 @@ def process_order(order_id: str) -> Order:
 | **Log-and-Rethrow Everywhere** | Spams logs 5x. Wrap and rethrow down the stack; log once at the outer boundary. |
 | **"Let me just try changing X real quick"** | Guessing wastes time. Complete Phase 1 and formulate a hypothesis first. |
 | **"It works on my machine"** | Isolate environment variables, Node/Python runtimes, and clean database state. |
+| **Ignoring Hung Tasks** | Leaving background tasks running leads to port exhaustion, file locking, and silent failure. |
 
 ---
 
