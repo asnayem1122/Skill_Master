@@ -8,13 +8,13 @@ This document is the official tracking registry and catalog ledger for the **Ski
 
 | Metric | Current Count | Target | Status |
 |:-------|:--------------|:-------|:-------|
-| **Total Active Skills** | **68 Git-Tracked / 72 Total Local** | 50+ | 🟢 Optimized |
+| **Total Active Skills** | **69 Git-Tracked / 73 Total Local** | 50+ | 🟢 Optimized |
 | **Meta & Ecosystem Tools** | 2 (`skill-creator`, `antigravity-skills-manager`) | 2 | 🟢 Complete |
 | **Orchestration & Sub-Agents** | 1 (`agent-orchestrator`) | 1 | 🟢 Complete |
 | **Conductor CDD Lifecycle** | 7 (`conductor-setup`, `new-track`, `implement`, etc.) | 7 | 🟢 Streamlined |
 | **Ideation & Discovery** | 2 (`interview-me`, `brainstorming-ideas`) | 2 | 🟢 Complete |
 | **Planning & Methodology** | 8 (`ponytail`, `spec-driven`, `writing-plans`, etc.) | 7 | 🟢 Complete |
-| **Architecture & Full-Stack** | 3 (`architect-review`, `full-stack`, `api-engineering`) | 3 | 🟢 Complete |
+| **Architecture, AI & Full-Stack** | 4 (`architect-review`, `full-stack`, `api-engineering`, `ai-application-engineering`) | 4 | 🟢 Complete |
 | **Backend & Infrastructure** | 3 (`database`, `observability`, `perf`) | 3 | 🟢 Complete |
 | **AppSec & Advanced Security** | 4 (`security-and-hardening`, `security-threat-model`, `codeql`, `security-fuzzing`) | 4 | 🟢 Complete |
 | **Testing & Verification** | 4 (`tdd`, `unit-testing`, `webapp-testing`, `verify-gate`) | 4 | 🟢 Complete |
@@ -31,12 +31,13 @@ This document is the official tracking registry and catalog ledger for the **Ski
 
 ---
 
-## 🗂️ Active Skills Catalog (68 Git-Tracked / 72 Total Local Skills)
+## 🗂️ Active Skills Catalog (69 Git-Tracked / 73 Total Local Skills)
 
 | Skill Folder | YAML Identifier | Domain | Status | Description & Value |
 |:-------------|:----------------|:-------|:-------|:--------------------|
 | [`accessible-forms-dialogs`](file:///.agent/skills/accessible-forms-dialogs/) | `accessible-forms-dialogs` | Frontend | 🟢 Active | WAI-ARIA forms, modal dialogs, focus trapping, and keyboard navigation. |
 | [`agent-orchestrator`](file:///.agent/skills/agent-orchestrator/) | `agent-orchestrator` | Orchestration | 🟢 Active | Splits complex tasks across narrow sub-agent roles with gated handoffs and independent verification. |
+| [`ai-application-engineering`](file:///.agent/skills/ai-application-engineering/) | `ai-application-engineering` | Architecture & AI | 🟢 Active | Master engineering strategy for production AI: streaming, structured outputs, hybrid RAG (RRF, reranking), ingestion, narrow tool agents, grounding & evals. |
 | [`algorithmic-art`](file:///.agent/skills/algorithmic-art/) | `algorithmic-art` | Creative | 🟢 Active | Generative art in p5.js with seeded randomness and interactive exploration. |
 | [`antigravity-skills-manager`](file:///.agent/skills/antigravity-skills-manager/) | `antigravity-skills-manager` | Meta | 🟢 Active (Upgraded) | Central CLI & governance hub; absorbed `using-agent-skills` lifecycle tree. |
 | [`api-engineering`](file:///.agent/skills/api-engineering/) | `api-engineering` | Architecture | 🟢 Active (Merged) | Merged `api-and-interface-design` + `api-engineering` (RFC 7807, CORS, dynamic URLs). |
@@ -128,6 +129,7 @@ This document is the official tracking registry and catalog ledger for the **Ski
 | **Frontend Design Elevation** | `pbakaus/impeccable` + `Leonxlnx/taste-skill` | [`frontend-design`](file:///.agent/skills/frontend-design/) | Absorbed 4 surface modes (Persuade/Operate/Read/Experience), 24+ design verbs, and 247-site anti-slop house rules matrix. |
 | **Karpathy Rigor Integration** | `forrestchang/andrej-karpathy-skills` | [`ponytail`](file:///.agent/skills/ponytail/) & [`context-engineering`](file:///.agent/skills/context-engineering/) | Absorbed 4 Laws of LLM Coding (Think Before Coding, Simplicity First, Surgical Changes, Goal-Driven Loops) and Confusion Protocol. |
 | **AppSec & AI Hardening Overhaul** | `agamm/claude-code-owasp` | [`security-and-hardening`](file:///.agent/skills/security-and-hardening/) | Upgraded to OWASP Top 10:2025, ASVS 5.0 (V1-V17), OWASP LLM 2026, Agentic ASI01-ASI10, and Rule of 4 false-positive triage. |
+| **AI Application Engineering Master** | `NVIDIA-AI-Blueprints/rag` + `vercel/ai` + `confident-ai/deepeval` + `anthropics/skills` | [`ai-application-engineering`](file:///.agent/skills/ai-application-engineering/) | Unified master engineering strategy: 10-step lifecycle, Architecture Decision Ladder, streaming protocols, hybrid RAG with RRF, document chunking pipelines, grounding citations, RAG Triad evaluations, and OpenTelemetry observability. |
 
 ---
 
@@ -228,3 +230,23 @@ This document is the official tracking registry and catalog ledger for the **Ski
   - Formalized the **Scratch Script Pattern** over inline `-e "..."` one-liners on Windows to eliminate PowerShell quoting, semicolon, and scriptblock parsing collisions.
 - **Repository Execution Governance**:
   - Added root [`AGENTS.md`](file:///D:/Code/Skill_Master/AGENTS.md) defining hierarchical execution guardrails for all Antigravity agent sessions.
+
+### 2026-10-28 — AI Application Engineering Master Release (v2.5.0)
+- **Empirical Multi-Repository Research**:
+  - Investigated 6 leading repositories (`NVIDIA-AI-Blueprints/rag`, `vercel/ai`, `confident-ai/deepeval`, `anthropics/skills`, `ericrisco/rsc-harness`, `jukeyman/jukeyman-skills`).
+  - Synthesized findings into `docs/ai-application-engineering/research.md`.
+  - Conducted full collision analysis in `docs/ai-application-engineering/collision-report.md` proving zero duplication with existing skills.
+- **Master Skill Implemented (`ai-application-engineering`)**:
+  - Authored `.agent/skills/ai-application-engineering/SKILL.md` (< 200 lines) with progressive disclosure architecture.
+  - Established the 10-step AI application engineering workflow and the 8-tier Architecture Decision Ladder.
+- **7 Modular Reference Deep-Dives**:
+  - `chatbot-engineering.md`: Streaming SSE / Data Stream protocol, cancellation (`AbortSignal`), sliding window memory, structured output.
+  - `rag-strategy-selection.md`: Dense vector, metadata filtering, hybrid search (dense + BM25), Reciprocal Rank Fusion (RRF), cross-encoder reranking, HyDE, agentic RAG.
+  - `document-ingestion.md`: PDF/HTML/DOCX/OCR parsing, semantic boundary chunking, token overlap, SHA-256 deduplication, incremental re-indexing.
+  - `grounding-and-quality.md`: Inline citation verification, abstention thresholds, prompt injection defense in retrieved docs, diagnostic triage (retrieval vs generation).
+  - `agent-tool-architecture.md`: Narrow Zod/JSON schemas, out-of-model authorization, idempotency keys, dangerous tool approvals (HITL), single-orchestrator default.
+  - `evaluation-and-metrics.md`: RAG Triad (Context Recall/Precision, Faithfulness, Answer Relevancy), G-Eval rubrics, LLM-as-a-judge safeguards, CI regression gates.
+  - `production-engineering.md`: Ephemeral prompt caching (90% cost / 80% TTFT reduction), circuit breakers, multi-provider fallbacks, OpenTelemetry traces.
+- **Validation Suite**:
+  - Validated across 10 diverse production engineering scenarios in `docs/ai-application-engineering/evaluation.md`.
+- **Catalog Metrics**: 69 active Git-tracked skills, 73 total local skills. 100% pass `node skills-cli.js installed` validation.

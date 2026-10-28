@@ -5,7 +5,7 @@
 ### The Modular AI Agent Engineering OS for Google Antigravity
 
 [![Platform](https://img.shields.io/badge/Platform-Google%20Antigravity-0C1118?style=flat-square&logo=google&logoColor=4285F4&labelColor=0C1118&color=4285F4)](https://antigravity.google)
-[![Skills](https://img.shields.io/badge/Active%20Skills-68%20Git%20%7C%2072%20Local-00F0B5?style=flat-square&labelColor=0C1118)](Catalog.md)
+[![Skills](https://img.shields.io/badge/Active%20Skills-69%20Git%20%7C%2073%20Local-00F0B5?style=flat-square&labelColor=0C1118)](Catalog.md)
 [![Token Overhead](https://img.shields.io/badge/Context%20Overhead-~3k%20tokens%20(0.3%25)-65D8FF?style=flat-square&labelColor=0C1118)](#-token-efficiency-how-progressive-disclosure-works)
 [![Sync Latency](https://img.shields.io/badge/NTFS%20Junction-0ms%20Live%20Sync-00F0B5?style=flat-square&labelColor=0C1118)](#-global-antigravity-integration)
 [![CLI Engine](https://img.shields.io/badge/CLI%20Tool-Zero--Dependency-FFB800?style=flat-square&labelColor=0C1118)](#-on-demand-skills-cli-skills-clijs)
@@ -188,7 +188,7 @@ To ensure **every project on the system** automatically has access to Skill Mast
 
 ## 🗂️ Repository Catalog & Bento Directory
 
-All **68 Git-tracked skills** (72 total local skills) are categorized into 6 core engineering domains:
+All **69 Git-tracked skills** (73 total local skills) are categorized into 6 core engineering domains:
 
 ### 🧠 Domain 1: Intent, Ideation & Product Discovery
 | Skill ID | Focus & Purpose |
@@ -203,6 +203,7 @@ All **68 Git-tracked skills** (72 total local skills) are categorized into 6 cor
 ### 📐 Domain 2: Architecture, Quality Contracts & Context
 | Skill ID | Focus & Purpose |
 | :--- | :--- |
+| [`ai-application-engineering`](file:///.agent/skills/ai-application-engineering/SKILL.md) | Production AI strategy: chatbots, streaming, hybrid RAG, ingestion, tool agents, evals |
 | [`architect-review`](file:///.agent/skills/architect-review/SKILL.md) | Architecture patterns, DDD, scalability & technical design reviews |
 | [`constraint-driven-development`](file:///.agent/skills/constraint-driven-development/SKILL.md) | Quality bar enforcement contracts in `CONSTRAINTS.md` |
 | [`api-engineering`](file:///.agent/skills/api-engineering/SKILL.md) | Contract-first REST/GraphQL, RFC 7807, CORS & normalized clients |
